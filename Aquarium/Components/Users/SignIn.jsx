@@ -32,7 +32,8 @@ export default function SignIn({ navigation }) {
                     if (user[0].job === "Doctor") {
                         navigation.navigate("MessageItem");
                     } else {
-                        navigation.navigate("TabFun");
+                        console.log("go home")
+                        navigation.navigate("Home");
                     }
                 });
             });
@@ -53,7 +54,7 @@ export default function SignIn({ navigation }) {
                             if (user[0].job === "Doctor") {
                                 navigation.navigate("MessageItem");
                             } else {
-                                navigation.navigate("TabFun");
+                                navigation.navigate("Home");
                             }
                         });
                     });
@@ -206,13 +207,13 @@ const styles = StyleSheet.create({
         marginTop: 16,
     },
     title: {
-        color: "#0B3B63",
+        color: "#235784",
         fontFamily: "Montserrat",
         fontWeight: 500,
         fontSize: 18,
     },
     word: {
-        color: "#0B3B63",
+        color: "#235784",
         fontFamily: "Montserrat",
         fontWeight: 400,
         fontSize: 16,
@@ -221,7 +222,7 @@ const styles = StyleSheet.create({
         marginTop: 32,
     },
     inpText: {
-        color: "#0B3B63A6",
+        color: "#235784",
         marginBottom: 5,
         fontFamily: "Montserrat",
         fontWeight: 500,
@@ -264,7 +265,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat",
         fontWeight: 500,
         fontSize: 14,
-        color: "#FFA8C5",
+        color: "#235784",
         textDecorationLine: "underline",
     },
     forgotwordview: {
@@ -277,7 +278,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         width: 328,
         height: 48,
-        backgroundColor: "#FFA8C5",
+        backgroundColor: "#235784",
         color: "#ffff",
     },
     button: {
@@ -337,7 +338,7 @@ const styles = StyleSheet.create({
     },
     uptext: {
         textDecorationLine: "underline",
-        color: "#FFA8C5",
+        color: "#235784",
     },
     uptextView: {
         marginTop: 30,
