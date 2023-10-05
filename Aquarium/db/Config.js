@@ -13,17 +13,15 @@ import "firebase/compat/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDY44AfN-rajqxhMKTk0S14t2VnRtSx7og",
-  authDomain: "aquarium-c0c7f.firebaseapp.com",
-  projectId: "aquarium-c0c7f",
-  storageBucket: "aquarium-c0c7f.appspot.com",
-  messagingSenderId: "183547354253",
-  appId: "1:183547354253:web:3297e024b7f00a671b16c4",
-  measurementId: "G-MFM4KS3471",
+  apiKey: "AIzaSyDq9ySay2dlOjfJBlUVpnbBlQSJDoPWP4g",
+  authDomain: "aquarum-8c3dc.firebaseapp.com",
+  projectId: "aquarum-8c3dc",
+  storageBucket: "aquarum-8c3dc.appspot.com",
+  messagingSenderId: "250275653520",
+  appId: "1:250275653520:web:0a6788563a36c0e56a3515",
+  measurementId: "G-3WV1QL44SH"
 };
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
