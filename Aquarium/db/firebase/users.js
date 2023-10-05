@@ -1,19 +1,16 @@
 import { db } from "../Config";
 import {
-    addDoc,
-    collection,
-    getDocs,
-    getFirestore,
-    setDoc,
-    doc,
-    query,
-    where,
-    onSnapshot,
-    deleteDoc,
-    updateDoc,
-  } from "firebase/firestore";
-  import { app } from "../Config";
-const firestoreDB = getFirestore(app);
+  getDocs,
+  doc,
+  setDoc,
+  addDoc,
+  deleteDoc,
+  collection,
+  query,
+  onSnapshot,
+  where,
+} from "firebase/firestore";
+
 async function getusersInfo() {
   const userCol = collection(db, "users");
   const userSnapshot = await getDocs(userCol);
@@ -26,23 +23,22 @@ async function getusersInfo() {
 async function deleteusers(id) {
   try {
     await deleteDoc(doc(db, "users", id));
+    
   } catch (error) {
     console.error("Error deleting document: ", error);
   }
 }
 
 async function Addusers(user) {
-  try {
-    console.log(user);
-    await setDoc(doc(firestoreDB, "Users"), user);
-    // const docRef = await addDoc(collection(db, "users"), user);
-    // return docRef; // Return the reference to the added document
-  } catch (e) {
-    console.error("Error adding document: ", e);
-    throw e; // Rethrow the error to handle it at a higher level if needed
+    try {
+        console.log(user);
+      const docRef = await addDoc(collection(db, "users"), user);
+      return docRef; // Return the reference to the added document
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      throw e; // Rethrow the error to handle it at a higher level if needed
+    }
   }
-}
-
 async function edituser(user) {
   await setDoc(doc(db, "users", user.id), user);
 }

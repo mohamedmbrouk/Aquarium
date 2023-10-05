@@ -61,6 +61,7 @@ export default function SignUp({ navigation }) {
         } else if (age.length === 0) {
             alert("Please enter your age");
         } else {
+            console.log('here')
             register(email, password)
                 .then(() => {
                     alert("Register Success!\nPlease Login");
@@ -78,7 +79,7 @@ export default function SignUp({ navigation }) {
                             job: "user",
                             image: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
                         });
-                        console.log("herer *** ")
+                        
                     });
                 })
                 .catch((err) => {
