@@ -1,15 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import SignIn from "./Components/Users/SignIn";
-import SignUp from "./Components/Users/SignUp";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-
+import Main from "./Components/Main";
+import SignIn from "./Components/Users/SignIn";
+import SignUp from "./Components/Users/SignUp";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -79,18 +80,33 @@ export function TabFun() {
 
 export default function App() {
   return (
-    <NetworkStatus>
+    
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="First"
+          initialRouteName="Main"
           screenOptions={{
             ...TransitionPresets.SlideFromRightIOS,
             ...TransitionPresets.ScaleFromCenterAndroid,
           }}
         >
+        <Stack.Screen
+            name="Main"
+            component={Main}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SignIn"
+            component={SignIn}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUp}
+            options={{ headerShown: false }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
-    </NetworkStatus>
+    
   );
 }
 

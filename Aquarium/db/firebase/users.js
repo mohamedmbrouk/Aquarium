@@ -30,13 +30,15 @@ async function deleteusers(id) {
 }
 
 async function Addusers(user) {
-  try {
-    const docRef = await addDoc(collection(db, "users"), user);
-    
-  } catch (e) {
-    console.error("Error adding document: ", e);
+    try {
+        console.log(user);
+      const docRef = await addDoc(collection(db, "users"), user);
+      return docRef; // Return the reference to the added document
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      throw e; // Rethrow the error to handle it at a higher level if needed
+    }
   }
-}
 async function edituser(user) {
   await setDoc(doc(db, "users", user.id), user);
 }
