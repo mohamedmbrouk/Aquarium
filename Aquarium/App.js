@@ -11,6 +11,7 @@ import {
 import Main from "./Components/Main";
 import SignIn from "./Components/Users/SignIn";
 import SignUp from "./Components/Users/SignUp";
+import Home from "./Components/Home";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -80,33 +81,36 @@ export function TabFun() {
 
 export default function App() {
   return (
-    
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Main"
-          screenOptions={{
-            ...TransitionPresets.SlideFromRightIOS,
-            ...TransitionPresets.ScaleFromCenterAndroid,
-          }}
-        >
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Main"
+        screenOptions={{
+          ...TransitionPresets.SlideFromRightIOS,
+          ...TransitionPresets.ScaleFromCenterAndroid,
+        }}
+      >
         <Stack.Screen
-            name="Main"
-            component={Main}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SignIn"
-            component={SignIn}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="SignUp"
-            component={SignUp}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    
+          name="Main"
+          component={Main}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignIn"
+          component={SignIn}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
