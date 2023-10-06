@@ -12,6 +12,8 @@ import Main from "./Components/Main";
 import SignIn from "./Components/Users/SignIn";
 import SignUp from "./Components/Users/SignUp";
 import Home from "./Components/Home";
+import Models from "./Components/Users/Models";
+import Game from "./Components/Users/Game";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -107,6 +109,16 @@ export default function App() {
         <Stack.Screen
           name="SignUp"
           component={SignUp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Models"
+          component={Models}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Game"
+          component={Game}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
