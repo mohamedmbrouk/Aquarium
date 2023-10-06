@@ -12,6 +12,12 @@ import Main from "./Components/Main";
 import SignIn from "./Components/Users/SignIn";
 import SignUp from "./Components/Users/SignUp";
 import Home from "./Components/Home";
+import Models from "./Components/Users/Models";
+import Game from "./Components/Users/Game";
+import Ocean from "./Components/Users/Ocean";
+import Kelp from "./Components/Users/Kelp";
+import News from "./Components/Users/News";
+import Event from "./Components/Users/Event";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -107,6 +113,36 @@ export default function App() {
         <Stack.Screen
           name="SignUp"
           component={SignUp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Models"
+          component={Models}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Game"
+          component={Game}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Ocean"
+          component={Ocean}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Kelp"
+          component={Kelp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="News"
+          component={News}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Event"
+          component={Event}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
