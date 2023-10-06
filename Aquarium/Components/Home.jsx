@@ -28,36 +28,41 @@ const Home = ({ navigation }) => {
 
       <View>
         <ScrollView horizontal={true}>
-          <View style={{ margin: 10 }}>
+          <TouchableOpacity
+            style={{ margin: 10 }}
+            onPress={() => {
+              navigation.navigate("Ocean");
+            }}
+          >
             <Image
               source={require("../assets/UIUX/Home/Group 134.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </View>
-          <View style={{ margin: 10 }}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 135.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </View>
-          <View style={{ margin: 10 }}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 136.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </View>
-          <View style={{ margin: 10 }}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 137.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </View>
-          <View style={{ margin: 10 }}>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 138.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </View>
+          </TouchableOpacity>
         </ScrollView>
       </View>
 

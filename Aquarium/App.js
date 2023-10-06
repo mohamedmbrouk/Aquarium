@@ -16,6 +16,7 @@ import Models from "./Components/Users/Models";
 import Game from "./Components/Users/Game";
 import Ocean from "./Components/Users/Ocean";
 import Kelp from "./Components/Users/Kelp";
+import News from "./Components/Users/News";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -87,7 +88,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Ocean"
+        initialRouteName="Main"
         screenOptions={{
           ...TransitionPresets.SlideFromRightIOS,
           ...TransitionPresets.ScaleFromCenterAndroid,
