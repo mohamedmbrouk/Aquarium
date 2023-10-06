@@ -14,12 +14,24 @@ const images = [
 export default function Event({ navigation }) {
     return (
         <ImageBackground
-            source={require('../../assets/UIUX/PacificAlgae/Pacific.png')}
+            source={require("../../assets/UIUX/Home/Home1.png")}
             style={styles.backgroundImage}
         >
-            
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+                <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                    <Image
+                        source={require("../../assets/UIUX/PacificAlgae/Frame.png")}
+                        style={{ width: 30, height: 30, marginHorizontal: 30 }}
+                    />
+                </TouchableOpacity>
+                <Image
+                    source={require("../../assets/UIUX/Home/Frame 5.png")}
+                    style={{ width: 200, height: 150 }}
+                />
+            </View>
+
             <View style={styles.container}>
-            <Text style={{fontSize:24}}>Basic images of the ocean from different NASA satellites</Text>
+                <Text style={{ fontSize: 24, color: 'white' }}>Basic images of the ocean from different NASA satellites</Text>
                 {images.map((imageSource, index) => (
                     <TouchableOpacity
                         key={index}
@@ -44,7 +56,7 @@ const styles = StyleSheet.create({
     container: {
         marginHorizontal: 16,
         alignItems: "center",
-        marginTop: 250,
+ 
         flex: 1,
         marginBottom: 120,
         justifyContent: "center",
