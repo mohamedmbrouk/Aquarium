@@ -111,7 +111,9 @@ const Home = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ margin: 7 }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            navigation.navigate("Event");
+          }}>
           <Image
             source={require("../assets/UIUX/Home/Group 132.png")}
             style={{ width: "97%", height: 200 }}

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity,Linking,ImageBackground } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity,Linking,ImageBackground ,Image} from 'react-native'
 import React from 'react'
 
 
@@ -19,6 +19,18 @@ export default function Models(native) {
       source={require('../../assets/UIUX/PacificAlgae/Pacific.png')} // Replace with your image path
       style={styles.backgroundImage}
     >
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <Image
+            source={require("../../assets/UIUX/PacificAlgae/Frame.png")}
+            style={{ width: 30, height: 30, marginHorizontal: 30 }}
+          />
+        </TouchableOpacity>
+        <Image
+          source={require("../../assets/UIUX/Home/Frame 5.png")}
+          style={{ width: 200, height: 150 }}
+        />
+      </View>
     <View style={styles.container}>
       <TouchableOpacity style={styles.touchable}  onPress={handleLinkPress}>
         <Text style={{fontSize:20}}>detect to know the type of fish</Text>

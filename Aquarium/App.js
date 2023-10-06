@@ -17,6 +17,7 @@ import Game from "./Components/Users/Game";
 import Ocean from "./Components/Users/Ocean";
 import Kelp from "./Components/Users/Kelp";
 import News from "./Components/Users/News";
+import Event from "./Components/Users/Event";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -137,6 +138,11 @@ export default function App() {
         <Stack.Screen
           name="News"
           component={News}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Event"
+          component={Event}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
