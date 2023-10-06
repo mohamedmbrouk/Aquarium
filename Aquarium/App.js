@@ -14,6 +14,8 @@ import SignUp from "./Components/Users/SignUp";
 import Home from "./Components/Home";
 import Models from "./Components/Users/Models";
 import Game from "./Components/Users/Game";
+import Ocean from "./Components/Users/Ocean";
+import Kelp from "./Components/Users/Kelp";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -85,7 +87,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="Ocean"
         screenOptions={{
           ...TransitionPresets.SlideFromRightIOS,
           ...TransitionPresets.ScaleFromCenterAndroid,
@@ -119,6 +121,16 @@ export default function App() {
         <Stack.Screen
           name="Game"
           component={Game}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Ocean"
+          component={Ocean}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Kelp"
+          component={Kelp}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
