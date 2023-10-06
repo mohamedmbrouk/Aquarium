@@ -28,41 +28,36 @@ const Home = ({ navigation }) => {
 
       <View>
         <ScrollView horizontal={true}>
-          <TouchableOpacity
-            style={{ margin: 10 }}
-            onPress={() => {
-              navigation.navigate("Ocean");
-            }}
-          >
+          <View style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 134.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ margin: 10 }}>
+          </View>
+          <View style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 135.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ margin: 10 }}>
+          </View>
+          <View style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 136.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ margin: 10 }}>
+          </View>
+          <View style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 137.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </TouchableOpacity>
-          <TouchableOpacity style={{ margin: 10 }}>
+          </View>
+          <View style={{ margin: 10 }}>
             <Image
               source={require("../assets/UIUX/Home/Group 138.png")}
               style={{ width: 200, height: 200 }}
             ></Image>
-          </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
 
@@ -99,7 +94,11 @@ const Home = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ margin: 7 }}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("News");
+          }}
+        >
           <Image
             source={require("../assets/UIUX/Home/Group 131.png")}
             style={{ width: "97%", height: 200 }}

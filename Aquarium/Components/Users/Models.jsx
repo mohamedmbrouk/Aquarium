@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity,Linking } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity,Linking,ImageBackground } from 'react-native'
 import React from 'react'
 
 
@@ -15,22 +15,27 @@ export default function Models(native) {
       };
 
   return (
+    <ImageBackground
+      source={require('../../assets/UIUX/PacificAlgae/Pacific.png')} // Replace with your image path
+      style={styles.backgroundImage}
+    >
     <View style={styles.container}>
       <TouchableOpacity style={styles.touchable}  onPress={handleLinkPress}>
-        <Text>Touchable 1</Text>
+        <Text style={{fontSize:20}}>detect to know the type of fish</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.touchable} onPress={handleLinkPress2}>
-        <Text>Touchable 2</Text>
+        <Text style={{fontSize:20}}>detect to know the Ocean is clear</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.touchable}>
-        <Text>Touchable 3</Text>
+        <Text style={{fontSize:20}}>know the type of Aglae</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.touchable} onPress={() => {
             navigation.navigate('Home');
           }}>
-        <Text>Touchable 3</Text>
+        <Text style={{fontSize:20}}>Back to home</Text>
       </TouchableOpacity>
     </View>
+    </ImageBackground>
   )
 }
 
@@ -40,9 +45,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   touchable: {
-    width: 200, // Set the width as needed
-    height: 50, // Set the height as needed
+    width: 300, // Set the width as needed
+    height: 80, // Set the height as needed
     backgroundColor: 'lightblue',
     justifyContent: 'center',
     alignItems: 'center',

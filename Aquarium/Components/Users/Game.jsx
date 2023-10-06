@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  ImageBackground,
+  Image,
+  Modal,
+  Button, // Import Button component
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
 const GameScreen = () => {
   const [score, setScore] = useState(0);
   const [characterPosition, setCharacterPosition] = useState({ x: 0, y: 0 });
-  const [itemPosition, setItemPosition] = useState(generateRandomPosition());
+  const [itemPositions, setItemPositions] = useState(generateRandomPositions(6));
+  const itemImagePaths = [
+    require('../../assets/UIUX/Game/west1.png'),
+    require('../../assets/UIUX/Game/west2.png'),
+    require('../../assets/UIUX/Game/west3.png'),
+    require('../../assets/UIUX/Game/Algae1.png'),
+    require('../../assets/UIUX/Game/Algae2.png'),
+    require('../../assets/UIUX/Game/Algae3.png'),
+  ];
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     const handleKeyPress = ({ key }) => {
@@ -23,17 +41,21 @@ const GameScreen = () => {
         newPosition.x += speed;
       }
 
-      // Check for collision with the item
-      if (
-        newPosition.x <= itemPosition.x + 20 &&
-        newPosition.x + 40 >= itemPosition.x &&
-        newPosition.y <= itemPosition.y + 20 &&
-        newPosition.y + 40 >= itemPosition.y
-      ) {
-        // Increase score and generate a new item
-        setScore(score + 1);
-        setItemPosition(generateRandomPosition());
-      }
+      // Check for collision with the items
+      itemPositions.forEach((itemPosition, index) => {
+        if (
+          newPosition.x <= itemPosition.x + 40 &&
+          newPosition.x + 40 >= itemPosition.x &&
+          newPosition.y <= itemPosition.y + 40 &&
+          newPosition.y + 40 >= itemPosition.y
+        ) {
+          // Increase score and generate a new position for the collected item
+          setScore(score + 1);
+          const newItems = [...itemPositions];
+          newItems.splice(index, 1, generateRandomPosition());
+          setItemPositions(newItems);
+        }
+      });
 
       setCharacterPosition(newPosition);
     };
@@ -45,35 +67,72 @@ const GameScreen = () => {
       // Remove event listener when component unmounts
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [characterPosition, itemPosition, score]);
+  }, [characterPosition, itemPositions, score]);
 
-  // Generate a random position for the item
+  // Generate an array of random positions for the items
+  function generateRandomPositions(count) {
+    const positions = [];
+    for (let i = 0; i < count; i++) {
+      positions.push(generateRandomPosition());
+    }
+    return positions;
+  }
+
+  // Generate a random position for an item
   function generateRandomPosition() {
     const x = Math.floor(Math.random() * (width - 40));
     const y = Math.floor(Math.random() * (height - 40));
     return { x, y };
   }
 
+  function closeModal() {
+    navigation.navigate('Home')
+    setIsModalVisible(false);
+  }
+
+  useEffect(() => {
+    // Check if the score is 10 and show the modal
+    if (score === 7) {
+      setIsModalVisible(true);
+    }
+  }, [score]);
+
   return (
     <ImageBackground
-      source={require('../../assets/UIUX/Game/see.jpg')}
+      source={require('../../assets/UIUX/Game/see.jpg')} // Replace with your image path
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
         <Text style={styles.scoreText}>Score: {score}</Text>
-        <View
+        <Image
+          source={require('../../assets/UIUX/Game/car.png')} // Replace with your character image path
           style={[
             styles.character,
             { left: characterPosition.x, top: characterPosition.y },
           ]}
         />
-        <View
-          style={[
-            styles.item,
-            { left: itemPosition.x, top: itemPosition.y },
-          ]}
-        />
+        {itemPositions.map((itemPosition, index) => (
+          <Image
+            key={index}
+            source={itemImagePaths[index % itemImagePaths.length]} // Cycle through item images
+            style={[
+              styles.item,
+              { left: itemPosition.x, top: itemPosition.y },
+            ]}
+          />
+        ))}
       </View>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={isModalVisible}
+        onRequestClose={closeModal}
+      >
+        <View style={styles.modal}>
+          <Text style={styles.modalText}>Proud to help us change our world</Text>
+          <Button title="Close" onPress={closeModal} />
+        </View>
+      </Modal>
     </ImageBackground>
   );
 };
@@ -83,30 +142,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    
   },
   scoreText: {
     fontSize: 24,
     fontWeight: 'bold',
   },
   character: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'blue',
+    width: 150,
+    height: 150,
     position: 'absolute',
   },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
-    width: '100%', // Use 100% width to cover the entire screen
-    height: '100%', // Use 100% height to cover the entire screen
   },
   item: {
-    width: 20,
-    height: 20,
-    backgroundColor: 'red',
+    width: 130,
+    height: 130,
     position: 'absolute',
+  },
+  modal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width:150,
+    height:150,
+  },
+  modalText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
 });
 
