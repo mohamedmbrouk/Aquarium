@@ -14,6 +14,7 @@ import SignUp from "./Components/Users/SignUp";
 import Home from "./Components/Home";
 import Models from "./Components/Users/Models";
 import Game from "./Components/Users/Game";
+import News from "./Components/Users/News";
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -119,6 +120,11 @@ export default function App() {
         <Stack.Screen
           name="Game"
           component={Game}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="News"
+          component={News}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
