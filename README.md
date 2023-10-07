@@ -1,5 +1,4 @@
 # Aquarium
-Nasa Space App
 ##Thank you, NASA Sapce App, for this unique and different experience.
 The challenge was enjoyable and pleasant, even though we couldn't achieve a top-ten ranking. However, we were able to create a mobile app called 'Aquarium' with six main features:
 
