@@ -1,4 +1,4 @@
-![image](https://github.com/mohamedmbrouk/Aquarium-App/assets/86850441/82f183fe-37b3-4ca9-9af6-e9138e44c0e6)# Aquarium
+# Aquarium
 Nasa Space App
 ##Thank you, NASA Sapce App, for this unique and different experience.
 The challenge was enjoyable and pleasant, even though we couldn't achieve a top-ten ranking. However, we were able to create a mobile app called 'Aquarium' with six main features:
